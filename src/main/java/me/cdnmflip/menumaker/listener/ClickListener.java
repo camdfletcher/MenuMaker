@@ -9,7 +9,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
 
 import java.util.Optional;
 
@@ -18,7 +17,6 @@ public class ClickListener implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        Inventory inventory = event.getInventory();
         int slotClicked = event.getSlot();
 
         if (!MenuMaker.getMenuRegistry().containsKey(player.getUniqueId()))
