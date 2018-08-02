@@ -1,6 +1,0 @@
-name: MenuMaker
-version: ${project.version}
-main: me.cdnmflip.menumaker.MenuMaker
-authors: [codenameflip]
-description: A simple API designed to make the creation of interactive Minecraft inventories, easier.
-website: http://cdnmflip.me

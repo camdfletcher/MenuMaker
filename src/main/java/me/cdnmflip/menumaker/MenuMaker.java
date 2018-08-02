@@ -16,11 +16,15 @@ import java.util.*;
 
 public final class MenuMaker {
 
-    @Getter private final Plugin plugin;
-    @Getter private final MenuMaker instance;
+    @Getter
+    private final Plugin plugin;
+    @Getter
+    private final MenuMaker instance;
 
-    @Getter private static final Set<Menu> menus = Sets.newHashSet();
-    @Getter private static final HashMap<UUID, Menu> menuRegistry = Maps.newHashMap();
+    @Getter
+    private static final Set<Menu> menus = Sets.newHashSet();
+    @Getter
+    private static final HashMap<UUID, Menu> menuRegistry = Maps.newHashMap();
 
     private static final List<Listener> listeners = Arrays.asList(
             new ClickListener(),

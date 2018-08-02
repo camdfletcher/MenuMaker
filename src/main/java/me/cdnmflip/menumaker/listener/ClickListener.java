@@ -21,7 +21,8 @@ public class ClickListener implements Listener {
         Inventory inventory = event.getInventory();
         int slotClicked = event.getSlot();
 
-        if (!MenuMaker.getMenuRegistry().containsKey(player.getUniqueId())) return; // We only care if the player is viewing a custom inventory
+        if (!MenuMaker.getMenuRegistry().containsKey(player.getUniqueId()))
+            return; // We only care if the player is viewing a custom inventory
 
         Menu menu = MenuMaker.getMenuRegistry().get(player.getUniqueId());
 

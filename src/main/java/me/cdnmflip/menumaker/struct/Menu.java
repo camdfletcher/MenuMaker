@@ -12,10 +12,14 @@ import java.util.List;
 
 public abstract class Menu {
 
-    @Getter private final String title;
-    @Getter private final InventoryType type;
-    @Getter private final List<MenuPartition> partitions = Lists.newArrayList();
-    @Getter private Inventory lastBuiltInventory = null;
+    @Getter
+    private final String title;
+    @Getter
+    private final InventoryType type;
+    @Getter
+    private final List<MenuPartition> partitions = Lists.newArrayList();
+    @Getter
+    private Inventory lastBuiltInventory = null;
 
     public Menu(String title, InventoryType type) {
         this.title = title;
@@ -25,6 +29,7 @@ public abstract class Menu {
 
     /**
      * Adds a {@link MenuPartition} object to the {@link Menu}'s partitions registry
+     *
      * @param partition The {@link MenuPartition} that you'd like to register
      * @return The {@link Menu} you just modified (for builder purposes)
      */
@@ -35,6 +40,7 @@ public abstract class Menu {
 
     /**
      * Generates an {@link Inventory} object that will be displayed to a player
+     *
      * @return
      */
     private Inventory constructInventory() {
@@ -56,6 +62,7 @@ public abstract class Menu {
 
     /**
      * Displays a generated menu to a {@link Player}
+     *
      * @param player The player you'd like to show the menu to
      */
     public void showPlayer(Player player) {

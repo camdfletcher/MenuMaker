@@ -19,30 +19,30 @@ public class MenuPartition {
 
     /**
      * Constructs a new MenuPartition object
-     *
+     * <p>
      * NOTE:
      * Layouts are written in binary format...
-     *    "0" = No item should be placed in that slot
-     *    "1" = An item should be placed in that slot
-     *
+     * "0" = No item should be placed in that slot
+     * "1" = An item should be placed in that slot
+     * <p>
      * The partition will be filled up sequentially in the order of defined "1"s
-     *
+     * <p>
      * You cannot set an item for an individual slot, you must specify it as "1"
      * in the layout, and then use {@link #nextItem(Item)} to insert into the next
      * available slot
-     *
+     * <p>
      * Rows will automatically be adjusted to accommodate for the largest partition in a {@link Menu}
-     *
+     * <p>
      * For example, in the layout:
-     *      "000111000"
+     * "000111000"
      * The first item to be filled with an item would be the first "1" that occurs
      * The second item to be filled would be the second "1" that occurs in the layout
      * ... and so on ...
-     *
+     * <p>
      * By adding a space after 9 characters, a new row will be generated.
-     *      E.g.: "000000000 000000001"
-     *      - This would generate 2 rows, with one item in the last slot on the second row.
-     *
+     * E.g.: "000000000 000000001"
+     * - This would generate 2 rows, with one item in the last slot on the second row.
+     * <p>
      * Partitions will stack on top of each other, in order of definition.
      * If you want to overlay a partition on-top of another, simply register it last in the Menu
      *
