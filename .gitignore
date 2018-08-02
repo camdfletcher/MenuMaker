@@ -1,0 +1,11 @@
+### Generic template
+# IntelliJ
+.idea/
+*.iml
+*/*.iml
+
+# Maven
+target/
+*/target/
+
+.DS_Store
