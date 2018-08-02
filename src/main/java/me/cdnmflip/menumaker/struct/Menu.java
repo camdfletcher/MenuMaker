@@ -10,7 +10,7 @@ import org.bukkit.inventory.Inventory;
 
 import java.util.List;
 
-public abstract class Menu {
+public class Menu {
 
     @Getter
     private final String title;
@@ -55,7 +55,11 @@ public abstract class Menu {
                 ? Bukkit.createInventory(null, maxSize, this.title)
                 : Bukkit.createInventory(null, this.type, this.title);
 
-        partitions.forEach(p -> p.construct(inventory));
+        partitions.forEach(p -> {
+            p.getExecutor().accept(p);
+            p.construct(inventory);
+        });
+
         this.lastBuiltInventory = inventory;
         return inventory;
     }

@@ -8,11 +8,14 @@ import org.bukkit.inventory.Inventory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class MenuPartition {
 
     @Getter
     private final HashMap<Integer, Item> contents = Maps.newHashMap();
+    @Getter
+    private final Consumer<MenuPartition> executor;
     private final List<Integer> availableSlots = Lists.newArrayList();
     private int lastUsedIndex = 0;
     private String layout;
@@ -46,10 +49,12 @@ public class MenuPartition {
      * Partitions will stack on top of each other, in order of definition.
      * If you want to overlay a partition on-top of another, simply register it last in the Menu
      *
-     * @param layout How you would like the inventory to be structured
+     * @param layout   How you would like the inventory to be structured
+     * @param executor Called whenever the partition is being created, put all of the item code in here
      */
-    public MenuPartition(String layout) {
+    public MenuPartition(String layout, Consumer<MenuPartition> executor) {
         this.layout = layout;
+        this.executor = executor;
 
         int i = 0;
         for (String slot : layout.split("")) {
@@ -63,9 +68,8 @@ public class MenuPartition {
      * Inserts an {@link Item} instance into the next available slot in the layout
      *
      * @param item The item you'd like to append to the partition
-     * @return The same instance of {@link MenuPartition}, for builder usage
      */
-    public MenuPartition nextItem(Item item) {
+    public void nextItem(Item item) {
         try {
             int slot = availableSlots.get(lastUsedIndex);
             contents.put(slot, item);
@@ -73,8 +77,6 @@ public class MenuPartition {
         } catch (IndexOutOfBoundsException e) {
             contents.put(layout.replaceAll(" ", "").length() - 1, item); // Default to last slot
         }
-
-        return this;
     }
 
     /**

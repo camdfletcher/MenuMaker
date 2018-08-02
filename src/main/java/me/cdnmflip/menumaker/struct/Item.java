@@ -13,8 +13,11 @@ import java.util.function.BiConsumer;
 @RequiredArgsConstructor
 public class Item {
 
-    @Getter private final ItemStack itemStack;
-    @Getter private final BiConsumer<Player, InventoryClickEvent> action;
-    @Getter private final boolean cancelClick;
+    @Getter
+    private final ItemStack itemStack;
+    @Getter
+    private final BiConsumer<Player, InventoryClickEvent> action;
+    @Getter
+    private final boolean cancelClick;
 
 }
