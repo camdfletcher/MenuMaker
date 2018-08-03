@@ -23,6 +23,21 @@ Lastly, `Menu`, is the parent object that houses all of the former components. `
 #### Implementation
 Before you're able to begin using MenuMaker, you must first add it to your dependency list, and register it in your `onEnable()` or `onLoad()` method (in your main class).
 
+```xml
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.codenameflip</groupId>
+    <artifactId>MenuMaker</artifactId>
+    <version>master-SNAPSHOT</version>
+</dependency>
+```
+
 ```java
 private MenuMaker menuMaker;
 
