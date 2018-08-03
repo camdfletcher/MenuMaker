@@ -21,7 +21,26 @@ At the lowest level, `Item`s act as an interface that allow developers to bind s
 Lastly, `Menu`, is the parent object that houses all of the former components. `Menu` is the primary interface that will be used to coordinate the construction and display of your custom menu. The `Menu` class contains all of the necessary functions required in order to present your menu to a player.
 
 #### Implementation
-Below is an example of a menu created and handled by MenuMaker...
+Before you're able to begin using MenuMaker, you must first add it to your dependency list, and register it in your `onEnable()` or `onLoad()` method (in your main class).
+
+```java
+private MenuMaker menuMaker;
+
+@Override
+public void onEnable() {
+    // ...
+    menuMaker = new MenuMaker(this);
+    menuMaker.setup();
+}
+
+@Override
+public void onDisable() {
+    // (optional, but recommended)
+    menuMaker.destroy();
+}
+```
+
+Once you're hooked into the API, below is an example of a menu created and handled by MenuMaker...
 
 ```java
 Menu menu = new Menu("A cool menu!", InventoryType.CHEST);
