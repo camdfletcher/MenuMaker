@@ -1,0 +1,4 @@
+name: MenuMaker
+version: ${project.version}
+main: me.cdnmflip.MenuMaker.ExamplePlugin
+author: codenameflip
