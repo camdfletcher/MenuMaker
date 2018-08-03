@@ -59,6 +59,7 @@ public final class MenuMaker {
 
     /**
      * Checks whether or not a player is viewing a {@link Menu}
+     *
      * @param uuid The {@link UUID} of the {@link Player} you'd like to check
      * @return is the player viewing the menu? true/false
      */
@@ -75,6 +76,7 @@ public final class MenuMaker {
 
     /**
      * Returns the {@link Menu} object that a specified {@link UUID} is viewing (if applicable)
+     *
      * @param uuid The {@link UUID} of the {@link Player} that you'd like to check
      * @return An {@link Optional} containing the {@link Menu} object, if present
      */
