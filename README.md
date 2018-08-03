@@ -34,7 +34,7 @@ menu.appendPartition(new MenuPartition("000111000", (partition) -> {
     // partition.nextItem(boringItem);
     
     // Or, the cleaner alternative...
-    Do.many(3, () -> partition.nextItem(boringItem));
+    Repeatedly.execute(3, () -> partition.nextItem(boringItem));
 }));
 menu.appendPartition(new MenuPartition("000010000", (partition) -> partition.nextItem(coolItem)));
 
