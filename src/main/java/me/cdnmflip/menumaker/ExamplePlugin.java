@@ -7,13 +7,14 @@ import me.cdnmflip.menumaker.struct.MenuPartition;
 import me.cdnmflip.menumaker.utilities.Repeatedly;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ExamplePlugin extends JavaPlugin {
+public class ExamplePlugin extends JavaPlugin implements CommandExecutor {
 
     @Getter
     private MenuMaker menuMaker;

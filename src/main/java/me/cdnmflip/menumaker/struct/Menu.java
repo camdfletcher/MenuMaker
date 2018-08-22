@@ -70,6 +70,7 @@ public class Menu {
      * @param player The player you'd like to show the menu to
      */
     public void showPlayer(Player player) {
+        MenuMaker.getMenuRegistry().put(player.getUniqueId(), this);
         player.openInventory(constructInventory());
     }
 

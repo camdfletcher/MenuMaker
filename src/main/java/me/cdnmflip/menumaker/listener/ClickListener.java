@@ -24,7 +24,7 @@ public class ClickListener implements Listener {
 
         Menu menu = MenuMaker.getMenuRegistry().get(player.getUniqueId());
 
-        for (int i = menu.getPartitions().size(); i >= 0; i--) {
+        for (int i = menu.getPartitions().size() - 1; i >= 0; i--) {
             MenuPartition partition = menu.getPartitions().get(i);
             Optional<Item> optionalItem = partition.getItemOnPartition(slotClicked);
 
@@ -37,6 +37,7 @@ public class ClickListener implements Listener {
                 }
 
                 if (item.getAction() != null) item.getAction().accept(player, event);
+                break;
             }
         }
     }

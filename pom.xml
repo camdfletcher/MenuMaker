@@ -18,6 +18,7 @@
     <url>http://cdnmflip.me</url>
 
     <build>
+        <finalName>MenuMaker</finalName>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>
