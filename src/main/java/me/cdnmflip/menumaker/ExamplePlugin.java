@@ -5,6 +5,7 @@ import me.cdnmflip.menumaker.struct.Item;
 import me.cdnmflip.menumaker.struct.Menu;
 import me.cdnmflip.menumaker.struct.MenuPartition;
 import me.cdnmflip.menumaker.utilities.Repeatedly;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -47,7 +48,7 @@ public class ExamplePlugin extends JavaPlugin implements CommandExecutor {
         Item fancyItem = Item.builder()
                 .itemStack(new ItemStack(Material.GOLD_BLOCK))
                 .cancelClick(true)
-                .action((p, event) -> p.sendMessage("You clicked a fancy item!"))
+                .action((p, event) -> p.sendMessage(ChatColor.BLUE + "You clicked a fancy item!"))
                 .build();
 
         Menu menu = new Menu("Fancy custom menu", InventoryType.CHEST);
