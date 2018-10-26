@@ -24,7 +24,6 @@ public class Menu {
     public Menu(String title, InventoryType type) {
         this.title = title;
         this.type = type;
-        MenuMaker.getMenus().add(this); // Register with the API
     }
 
     /**
@@ -67,10 +66,12 @@ public class Menu {
     /**
      * Displays a generated menu to a {@link Player}
      *
+     * @param instance The instance of the plugin's menu registry that was initialized on boot
      * @param player The player you'd like to show the menu to
      */
-    public void showPlayer(Player player) {
-        MenuMaker.getMenuRegistry().put(player.getUniqueId(), this);
+    public void showPlayer(MenuMaker instance, Player player) {
+        instance.getMenus().add(this);
+        instance.getMenuRegistry().put(player.getUniqueId(), this);
         player.openInventory(constructInventory());
     }
 

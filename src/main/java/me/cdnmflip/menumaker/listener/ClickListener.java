@@ -1,5 +1,6 @@
 package me.cdnmflip.menumaker.listener;
 
+import lombok.RequiredArgsConstructor;
 import me.cdnmflip.menumaker.MenuMaker;
 import me.cdnmflip.menumaker.struct.Item;
 import me.cdnmflip.menumaker.struct.Menu;
@@ -12,17 +13,22 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class ClickListener implements Listener {
+
+    private final MenuMaker instance;
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         int slotClicked = event.getSlot();
 
-        if (!MenuMaker.getMenuRegistry().containsKey(player.getUniqueId()))
+        Optional<Menu> optional = instance.getViewingMenu(player);
+
+        if (!optional.isPresent())
             return; // We only care if the player is viewing a custom inventory
 
-        Menu menu = MenuMaker.getMenuRegistry().get(player.getUniqueId());
+        Menu menu = optional.get();
 
         for (int i = menu.getPartitions().size() - 1; i >= 0; i--) {
             MenuPartition partition = menu.getPartitions().get(i);
