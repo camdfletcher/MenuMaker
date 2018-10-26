@@ -22,14 +22,10 @@ public final class MenuMaker {
     private final MenuMaker instance;
 
     @Getter
-    private static final Set<Menu> menus = Sets.newHashSet();
+    private final Set<Menu> menus = Sets.newHashSet();
     @Getter
-    private static final HashMap<UUID, Menu> menuRegistry = Maps.newHashMap();
+    private final HashMap<UUID, Menu> menuRegistry = Maps.newHashMap();
 
-    private static final List<Listener> listeners = Arrays.asList(
-            new ClickListener(),
-            new CloseListener()
-    );
 
     public MenuMaker(Plugin plugin) {
         this.plugin = plugin;
@@ -44,7 +40,8 @@ public final class MenuMaker {
         System.out.println("[MenuMaker] Initialized library. All menus are now linked!");
 
         PluginManager pm = plugin.getServer().getPluginManager();
-        listeners.forEach(listener -> pm.registerEvents(listener, plugin));
+        pm.registerEvents(new ClickListener(this), this.plugin);
+        pm.registerEvents(new CloseListener(this), this.plugin);
     }
 
     /**
@@ -52,9 +49,7 @@ public final class MenuMaker {
      */
     public void destroy() {
         System.out.println("[MenuMaker] Detached library. No menus will work from this point onward.");
-
         menus.clear();
-        listeners.forEach(HandlerList::unregisterAll);
     }
 
     /**
